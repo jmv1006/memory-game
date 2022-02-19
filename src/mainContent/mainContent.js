@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './mainContent.css'
 import Scoreboard from '../scoreboard/scoreboard';
+import Game from "../game/game";
 
 const MainContent = () => {
 
@@ -10,12 +11,13 @@ const MainContent = () => {
         e.preventDefault();
         setCurrentScore(currentScore + 1);
     }
+
     return(
         <div id='mainContentContainer'>
             <Scoreboard>
                 <div>{currentScore}</div>
-                <button onClick={updateScore}>Click</button>
             </Scoreboard>
+            <Game buttonClick={updateScore}/>
         </div>
     )
 }
