@@ -4,6 +4,7 @@ const Game = (props) => {
 
     const [cards, setCards] = useState([]);
 
+    const [count, setCount] = useState(0)
     
     const createCards = () => {
         for(let i = 0; i < 16; i++) {
@@ -11,6 +12,7 @@ const Game = (props) => {
             const addCard = (card) => setCards(state => [...state, card])
             addCard(card)
         }
+
     };
     
 
@@ -18,23 +20,39 @@ const Game = (props) => {
         createCards();
     }, [])
 
-    const testEffect = (e) => {
-        e.preventDefault()
-        console.log('worked')
-        console.log(cards)
+    useEffect(() => {
+        shuffleCards(cards);
+    })
+
+
+    const shuffleCards = (arr) => {
+        let currentIndex = arr.length, randomIndex;
+
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]]
+        }
     }
 
+    shuffleCards(cards);
     const displayCards = cards.map((card) => 
-        <div key={card.number}>Card</div>
+        //displays cards with random number
+        <div key={card.number} identifier={card.number}>Card {card.number}</div>
     );
+
+    const testEff = (e) => {
+        e.preventDefault();
+        setCount(count + 1)
+    }
 
 
     return(
         <div id='gameContainer'>
             <div id='cardsContainer'>
                 {displayCards}
-                <button onClick={testEffect}>test</button>
             </div>
+            <button onClick={testEff}>Click</button>
         </div>
     )
 }
