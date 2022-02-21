@@ -4,6 +4,8 @@ const Game = (props) => {
 
     const [cards, setCards] = useState([]);
 
+    const [chosenCards, setChosenCards] = useState([]);
+
     const [count, setCount] = useState(0)
     
     const createCards = () => {
@@ -15,7 +17,6 @@ const Game = (props) => {
 
     };
     
-
     useEffect(() => {
         createCards();
     }, [])
@@ -27,7 +28,6 @@ const Game = (props) => {
 
     const shuffleCards = (arr) => {
         let currentIndex = arr.length, randomIndex;
-
         while (currentIndex != 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
@@ -35,16 +35,24 @@ const Game = (props) => {
         }
     }
 
+    const checkIfAlreadyClicked = (e) => {
+        e.preventDefault()
+        if(chosenCards.includes(e.target.getAttribute('identifier'))) {
+            console.log('wrong')
+            setCount(count + 1)
+        } else {
+            setChosenCards(chosenCards.concat(e.target.getAttribute('identifier')))
+            console.log('score')
+            props.addToScore();
+        };
+
+    }
+
     shuffleCards(cards);
     const displayCards = cards.map((card) => 
         //displays cards with random number
-        <div key={card.number} identifier={card.number}>Card {card.number}</div>
+        <div className ='card' onClick={checkIfAlreadyClicked} key={card.number} identifier={card.number}>Card {card.number}</div>
     );
-
-    const testEff = (e) => {
-        e.preventDefault();
-        setCount(count + 1)
-    }
 
 
     return(
@@ -52,7 +60,6 @@ const Game = (props) => {
             <div id='cardsContainer'>
                 {displayCards}
             </div>
-            <button onClick={testEff}>Click</button>
         </div>
     )
 }

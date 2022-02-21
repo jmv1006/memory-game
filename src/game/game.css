@@ -14,3 +14,13 @@
     grid-column-gap: 60px;
     grid-row-gap: 60px;  
 }
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: beige;
+    cursor: pointer;
+}

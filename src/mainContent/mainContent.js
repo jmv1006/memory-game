@@ -6,18 +6,29 @@ import Game from "../game/game";
 const MainContent = () => {
 
     const [currentScore, setCurrentScore] = useState(0);
+    const [topScore, setTopScore] = useState(0);
 
-    const updateScore = (e) => {
-        e.preventDefault();
-        setCurrentScore(currentScore + 1);
+    const checkIfIsTopScore = () => {
+        if(currentScore >= topScore) {
+            setTopScore(currentScore)
+        }
     }
+
+    useEffect(() => {
+        checkIfIsTopScore();
+    }, [currentScore])
+
+    const updateScore = () => {
+        setCurrentScore(currentScore + 1);
+    };
 
     return(
         <div id='mainContentContainer'>
             <Scoreboard>
-                <div>{currentScore}</div>
+                <div>Score: {currentScore}</div>
+                <div>Top Score: {topScore}</div>
             </Scoreboard>
-            <Game buttonClick={updateScore}/>
+            <Game addToScore={updateScore}/>
         </div>
     )
 }
