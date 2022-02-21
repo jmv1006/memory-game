@@ -22,13 +22,17 @@ const MainContent = () => {
         setCurrentScore(currentScore + 1);
     };
 
+    const resetScore = () => {
+        setCurrentScore(0);
+    }
+
     return(
         <div id='mainContentContainer'>
             <Scoreboard>
                 <div>Score: {currentScore}</div>
                 <div>Top Score: {topScore}</div>
             </Scoreboard>
-            <Game addToScore={updateScore}/>
+            <Game resetScore={resetScore} addToScore={updateScore}/>
         </div>
     )
 }

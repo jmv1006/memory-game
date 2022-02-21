@@ -38,11 +38,12 @@ const Game = (props) => {
     const checkIfAlreadyClicked = (e) => {
         e.preventDefault()
         if(chosenCards.includes(e.target.getAttribute('identifier'))) {
-            console.log('wrong')
-            setCount(count + 1)
+            //wrong
+            props.resetScore();
+            setChosenCards([]);
         } else {
             setChosenCards(chosenCards.concat(e.target.getAttribute('identifier')))
-            console.log('score')
+            //correct
             props.addToScore();
         };
 
