@@ -1,8 +1,12 @@
+
 import './header.css'
+
 
 const Header = () => {
     return(
-        <div id='headerContainer'>Memory Card</div>
+        <div id='headerContainer'>
+            <div id='headerText'>Memory Game</div>
+        </div>
     )
 }
 

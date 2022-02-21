@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react'
 import './game.css'
+import logosArr from './images';
+
 const Game = (props) => {
 
     const [cards, setCards] = useState([]);
 
     const [chosenCards, setChosenCards] = useState([]);
-
-    const [count, setCount] = useState(0)
     
     const createCards = () => {
-        for(let i = 0; i < 16; i++) {
-            const card = {number: i, isClicked: false}
+        for(let i = 0; i < 12; i++) {
+            const card = {number: i, logo: logosArr[i]}
             const addCard = (card) => setCards(state => [...state, card])
             addCard(card)
         }
-
     };
     
     useEffect(() => {
@@ -52,7 +51,9 @@ const Game = (props) => {
     shuffleCards(cards);
     const displayCards = cards.map((card) => 
         //displays cards with random number
-        <div className ='card' onClick={checkIfAlreadyClicked} key={card.number} identifier={card.number}>Card {card.number}</div>
+        <div className ='card' onClick={checkIfAlreadyClicked} key={card.number} identifier={card.number}>
+            <img className='image' src={card.logo} identifier={card.number} onClick={checkIfAlreadyClicked} ></img>
+        </div>
     );
 
 
