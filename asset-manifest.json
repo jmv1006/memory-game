@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/memory-game/static/css/main.1329653c.css",
+    "main.js": "/memory-game/static/js/main.20d646d7.js",
+    "static/media/vscodelogo.svg.png": "/memory-game/static/media/vscodelogo.svg.19edc3fbac1c451f289d.png",
+    "static/media/webpacklogo.png": "/memory-game/static/media/webpacklogo.47692505d122dbcae490.png",
+    "static/media/javalogo.jpeg": "/memory-game/static/media/javalogo.bc7a3325b6ee01ddcab8.jpeg",
+    "static/media/pythonlogo.png": "/memory-game/static/media/pythonlogo.f0c9d64775aac23759fe.png",
+    "static/media/cpluslogo.png": "/memory-game/static/media/cpluslogo.0a81196c8995a6248ba3.png",
+    "static/media/jslogo.png": "/memory-game/static/media/jslogo.029db7d4b814c1430763.png",
+    "static/media/csslogo.png": "/memory-game/static/media/csslogo.4e67641bb68b658d9b2b.png",
+    "static/media/swiftlogo.png": "/memory-game/static/media/swiftlogo.77ba9d85e648a5cfe8af.png",
+    "static/media/typescriptlogo.png": "/memory-game/static/media/typescriptlogo.9b1779a2fd3504559e59.png",
+    "index.html": "/memory-game/index.html",
+    "main.1329653c.css.map": "/memory-game/static/css/main.1329653c.css.map",
+    "main.20d646d7.js.map": "/memory-game/static/js/main.20d646d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1329653c.css",
+    "static/js/main.20d646d7.js"
+  ]
+}
